@@ -50,6 +50,8 @@ int main()
             case 'U':
                 ++uCnt;
                 break;
+            default:
+                break;
         }
 #endif
     }
