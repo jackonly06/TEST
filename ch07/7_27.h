@@ -9,7 +9,7 @@
 #define _DJX_7_27_H_
 
 #include <string>
-#include <iosteam>
+#include <iostream>
 
 class Screen{
 public:
@@ -19,8 +19,8 @@ public:
     Screen(pos ht, pos wd) : height(ht), width(wd), contents(ht * wd, ' ') {} //2
     Screen(pos ht, pos wd, char c) : height(ht), width(wd), contents(ht * wd, c) {} //3
 
-    char get() const { return contents[cursor]; }
-    char get(pos r, pos c) const { return contents[r * width + c]; }
+//    char get() const { return contents[cursor]; }
+//    char get(pos r, pos c) const { return contents[r * width + c]; }
     inline Screen& move(pos r, pos c);
     inline Screen& set(char c);
     inline Screen& set(pos r, pos c, char ch);
