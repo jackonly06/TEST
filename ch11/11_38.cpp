@@ -34,7 +34,7 @@ void wordTransformation()
         return;
     }
 
-    unorderd_map<string, string> trans_map;
+    unordered_map<string, string> trans_map;
     for( string key, value; ifs_map >> key &&
         getline(ifs_map, value);){
         if( value.size() > 1){
@@ -43,13 +43,16 @@ void wordTransformation()
     }
 
     for( string text, word; getline(ifs_content, text); cout << endl){
-        
+       for( istringstream iss(text); iss >> word;){
+            auto map_it = trans_map.find(word);
+            cout << (map_it == trans_map.cend() ? word : map_it->second) << " ";
+       }
     }
 }
 
 int main(int argc, char** argv)
 {
-
+    wordTransformation();
     return 0;
 }
 
