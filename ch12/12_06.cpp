@@ -18,7 +18,7 @@ void dynamic_vector_printer(vector<int> *ptr_v);
 
 int main(int argc, char** argv)
 {
-    
+    vector<int> *ptr_vi;
     return 0;
 }
 
