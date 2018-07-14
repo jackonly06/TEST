@@ -18,7 +18,12 @@ void dynamic_vector_printer(vector<int> *ptr_v);
 
 int main(int argc, char** argv)
 {
-    vector<int> *ptr_vi;
+    vector<int> *ptr_vi = dynamic_vector_generator();
+    dynamic_vector_processor(ptr_vi);
+    dynamic_vector_printer(ptr_vi);
+
+    delete ptr_vi;
+
     return 0;
 }
 
