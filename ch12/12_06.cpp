@@ -27,3 +27,26 @@ int main(int argc, char** argv)
     return 0;
 }
 
+vector<int> *dynamic_vector_generator()
+{
+    vector<int> *ptr_v = new vector<int>();
+    return ptr_v;
+}
+
+void dynamic_vector_processor(vector<int> *ptr_v)
+{
+    int i;
+    cout << "plz enter:\n";
+    while( cin >> i && i != 999 ){
+        ptr_v->push_back(i);
+    }
+}
+
+void dynamic_vector_printer(vector<int> *ptr_v)
+{
+    for( const auto &e : *ptr_v ){
+        cout << e << " ";
+    }
+    cout << "\n";
+}
+
