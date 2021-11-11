@@ -26,6 +26,8 @@ public:
 void Shape::Draw()
 {
     //因为这是一个纯虚函数，可以不写，一般也不写；
+    //也可以写，如下：
+    cout << "Abstract drawing 方法!\n";
 }
 
 class Circle: public Shape
@@ -43,6 +45,7 @@ private:
 void Circle::Draw()
 {
     cout << "Circle drawing routine here!\n";
+    Shape::Draw();
 }
 
 class Rectangle: public Shape
@@ -69,6 +72,7 @@ void Rectangle::Draw()
         }
         cout << "\n";
     }
+    Shape::Draw();
 }
 
 class Square: public Rectangle
@@ -110,7 +114,7 @@ int main(int argc, char **argv)
     {
         cout << "(1)circle (2)Rectangle (3)Square (0)Quit: ";
         cin >> choice;
-        
+
         switch(choice)
         {
             case 1:
@@ -122,16 +126,18 @@ int main(int argc, char **argv)
             case 3:
                 sp = new Square(5);
                 break;
-            case 0:
+            default:
                 fQuit = true;
-                break; 
+                break;
         }
         if(fQuit == false)
         {
             sp->Draw();
+            delete sp;
+            cout << endl;
         }
     }
-    
+
     return 0;
 }
 
