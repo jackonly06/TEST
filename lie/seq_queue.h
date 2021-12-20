@@ -8,6 +8,8 @@
 #ifndef _DJX_SEQ_QUEUE_H_
 #define _DJX_SEQ_QUEUE_H_
 
+using namespace std;
+
 template<class T>
 class Queue
 {
@@ -45,25 +47,25 @@ void Queue<T>::Push(const T &item)
 {
 //   if(rear == (capacity - 1))
 //   {
-//        rear = 0; 
+//        rear = 0;
 //   }else{
-//        rear++; 
+//        rear++;
 //   }
 
     if((rear + 1) % capacity == front ) //队列满了
     {
-        //加倍 
+        //加倍
         T* newQueue = new T[2*capacity];
-        
+
         int start = (front + 1) % capacity;
-        if(start < 2) //没有回转，no wrap 
+        if(start < 2) //没有回转，no wrap
         {
-            copy(queue+start, queue+start+capacity-1, newQueue);      
+            copy(queue+start, queue+start+capacity-1, newQueue);
         }
         else //wrap
         {
             copy(queue+start, queue+capacity, newQueue);
-            copy(queue, queue+rear+1, newQueue+capacity-start); 
+            copy(queue, queue+rear+1, newQueue+capacity-start);
         }
 
         front = 2 * capacity - 1;
@@ -96,7 +98,7 @@ inline T& Queue<T>::Rear() const
 {
     if(IsEmpty())
     {
-        throw "Queue is empty. No rear element";   
+        throw "Queue is empty. No rear element";
     }
 
     return queue[rear];
@@ -107,7 +109,7 @@ void Queue<T>::Pop()
 {
     if(IsEmpty())
     {
-        throw "Queue is empty. Cannot delete."; 
+        throw "Queue is empty. Cannot delete.";
     }
     front = (front + 1) % capacity;
 
